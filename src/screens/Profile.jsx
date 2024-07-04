@@ -1,13 +1,27 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const ProfileScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Profil Pengguna</Text>
-      <Text style={styles.text}>Nama: Jane Doe</Text>
-      <Text style={styles.text}>Usia: 25 tahun</Text>
-      <Text style={styles.text}>Email: jane.doe@example.com</Text>
+      <Image
+        source={{ uri: '../assets/images/1.jpg' }}
+        style={styles.profileImage}
+      />
+      <Text style={styles.text}>Profil Pengguna</Text>
+      <View style={styles.infoContainer}>
+        <MaterialCommunityIcons name="account" size={24} color="#ff69b4" />
+        <Text style={styles.teks}>Nama: Nanda Ayu Primadiani</Text>
+      </View>
+      <View style={styles.infoContainer}>
+        <MaterialCommunityIcons name="calendar" size={24} color="#ff69b4" />
+        <Text style={styles.teks}>Usia: 20 tahun</Text>
+      </View>
+      <View style={styles.infoContainer}>
+        <MaterialCommunityIcons name="email" size={24} color="#ff69b4" />
+        <Text style={styles.teks}>Email: nandaayu@gmail.com</Text>
+      </View>
     </View>
   );
 };
@@ -17,19 +31,35 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FF69B4', // Background color changed to pink
     padding: 20,
+    backgroundColor: '#f0f8ff',
   },
-  title: {
+  profileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 20,
+  },
+  teks: {
+    fontSize: 18,
+    fontWeight: '300',
+    marginLeft: 10,
+    color: 'black',
+  },
+  text: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#FFF', // Text color changed to white
+    color: 'black',
   },
-  text: {
-    fontSize: 18,
-    marginBottom: 10,
-    color: '#FFF', // Text color changed to white
+  infoContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 20,
+    backgroundColor: '#ffe4e1',
+    padding: 10,
+    borderRadius: 10,
+    width: '90%',
   },
 });
 
