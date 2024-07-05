@@ -7,8 +7,14 @@ import { StyleSheet } from 'react-native';
 import HomeScreen from './src/screens/Home';
 import ProfileScreen from './src/screens/Profile';
 import TentangScreen from './src/screens/About';
+import TentangKesehatan from './src/screens/Kesehatan';
 import LoginScreen from './src/screens/LoginScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
+import { UserProvider } from './src/screens/UserContext';
+import KesehatanReproduksi from './src/screens/KesehatanReproduksi';
+import KesehatanTubuh from './src/screens/KesehatanTubuh';
+import Olahraga from './src/screens/Olahraga';
+import MenstruasiScreen from './src/screens/Menstruasi';
 
 const Stack =createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -49,9 +55,9 @@ const Tabs = () => {
     </Tab.Navigator>
   );
 };
-
 function App() {
   return (
+    <UserProvider>
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
@@ -62,19 +68,50 @@ function App() {
         <Stack.Screen 
         name="LoginScreen" 
         component={LoginScreen} 
-        options={{ headerShown: false }} 
+        options={{ title :'Login' }} 
         />
         <Stack.Screen 
         name="ProfileScreen" 
         component={ProfileScreen} 
-        options={{ headerShown: false }} 
+        options={{ title :'Profil' }} 
         />
         <Stack.Screen 
         name="RegisterScreen" 
         component={RegisterScreen} 
+        options={{ title :'Register' }} 
+        />
+        <Stack.Screen 
+        name="Kesehatan" 
+        component={TentangKesehatan} 
+        options={{ title :'Tentang Kesehatan' }} 
+        />
+        <Stack.Screen 
+        name="KesehatanReproduksi" 
+        component={KesehatanReproduksi} 
+        options={{ title: 'Kesehatan Reproduksi' }} 
+        />
+        <Stack.Screen 
+        name="KesehatanTubuh" 
+        component={KesehatanTubuh} 
+        options={{ title: 'Kesehatan Tubuh' }} 
+        />
+        <Stack.Screen 
+        name="Olahraga" 
+        component={Olahraga} 
+        options={{ title: 'Olahraga' }} 
+        />
+        <Stack.Screen 
+        name="Menstruasi" 
+        component={MenstruasiScreen} 
+        options={{ title: 'Menstruasi' }} 
+        />
+        <Stack.Screen 
+        name="UserContext" 
+        component={UserProvider} 
         options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
+    </UserProvider>
   );
 }
 

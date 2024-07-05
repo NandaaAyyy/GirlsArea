@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { UserContext } from './UserContext';
 
 const RegisterScreen = ({ navigation }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { setUser } = useContext(UserContext);
 
   const handleRegister = () => {
-    navigation.navigate('LoginScreen');
+    if (name && email && password) {
+      setUser({ name, email });
+      navigation.navigate('ProfileScreen');
+    } else {
+      alert('Please fill out all fields');
+    }
   };
 
   return (
@@ -67,6 +74,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 10,
     marginBottom: 20,
+    backgroundColor: '#fff',
     color: 'black',
   },
   button: {

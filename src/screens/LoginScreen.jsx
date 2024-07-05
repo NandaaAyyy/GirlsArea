@@ -1,21 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { UserContext } from './UserContext';
 
 const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+    const [nama, setNama] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const { setUser } = useContext(UserContext);
 
   const handleLogin = () => {
-    navigation.navigate('ProfileScreen');
+    if (email && password) {
+      setUser({ email });
+      navigation.navigate('ProfileScreen');
+    } else {
+      alert('Please enter valid credentials');
+    }
   };
 
   return (
     <View style={styles.container}>
       <Image 
-        source={require('../assets/images/1.jpg')} 
+        source={require('../assets/images/2.jpg')} 
         style={styles.logo}
       />
-      <Text style={styles.title}>Selamat Datang</Text>
+      <Text style={styles.title}>Login</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Nama"
+        placeholderTextColor="#888"
+        value={nama}
+        onChangeText={setNama}
+      />
       <TextInput
         style={styles.input}
         placeholder="Email"

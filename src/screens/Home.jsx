@@ -15,19 +15,19 @@ const HomeScreen = ({ navigation }) => {
       </View>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Profile')}>
+        onPress={() => navigation.navigate('Menstruasi')}>
         <MaterialCommunityIcons name="account-heart" size={30} color="white" />
         <Text style={styles.buttonText}>Tentang Menstruasi</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Tentang')}>
+        onPress={() => navigation.navigate('Kesehatan')}>
         <MaterialCommunityIcons name="information" size={20} color="white" />
         <Text style={styles.buttonText}>Tentang Kesehatan</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('')}>
+        onPress={() => navigation.navigate('Perasaan')}>
         <MaterialCommunityIcons name="image" size={20} color="white" />
         <Text style={styles.buttonText}>Tentang Perasaan</Text>
       </TouchableOpacity>
