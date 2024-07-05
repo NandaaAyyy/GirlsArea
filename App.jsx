@@ -15,6 +15,7 @@ import KesehatanReproduksi from './src/screens/KesehatanReproduksi';
 import KesehatanTubuh from './src/screens/KesehatanTubuh';
 import Olahraga from './src/screens/Olahraga';
 import MenstruasiScreen from './src/screens/Menstruasi';
+import PerasaanScreen from './src/screens/Perasaan';
 
 const Stack =createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -104,6 +105,11 @@ function App() {
         name="Menstruasi" 
         component={MenstruasiScreen} 
         options={{ title: 'Menstruasi' }} 
+        />
+        <Stack.Screen 
+        name="Perasaan" 
+        component={PerasaanScreen} 
+        options={{ title: 'Perasaan' }} 
         />
         <Stack.Screen 
         name="UserContext" 
