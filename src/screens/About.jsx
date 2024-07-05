@@ -8,7 +8,7 @@ const TentangScreen = () => {
       <MaterialCommunityIcons name="information" size={50} color="#ff69b4" />
       <Text style={styles.text}>Tentang Aplikasi Ini</Text>
       <Text style={styles.description}>
-        Aplikasi ini dirancang untuk membantu anak-anak belajar tentang perempuan. 
+        Aplikasi ini dirancang untuk membantu khalayak ramai untuk belajar tentang perempuan. 
         Di dalamnya terdapat berbagai informasi menarik dan edukatif yang dapat meningkatkan 
         pengetahuan dan wawasan mereka. 
       </Text>

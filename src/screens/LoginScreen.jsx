@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -11,7 +11,11 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Image 
+        source={require('../assets/images/1.jpg')} 
+        style={styles.logo}
+      />
+      <Text style={styles.title}>Selamat Datang</Text>
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -45,10 +49,15 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#f0f8ff',
   },
+  logo: {
+    width: 150,
+    height: 150,
+    marginBottom: 40,
+  },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-    marginBottom: 40,
+    marginBottom: 20,
     color: 'black',
   },
   input: {
@@ -59,7 +68,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 10,
     marginBottom: 20,
+    backgroundColor: '#fff',
     color: 'black',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
   },
   button: {
     width: '100%',

@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
-const LoginScreen = ({ navigation }) => {
+const RegisterScreen = ({ navigation }) => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    navigation.navigate('ProfileScreen');
+  const handleRegister = () => {
+    navigation.navigate('LoginScreen');
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>Daftar</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Nama"
+        placeholderTextColor="#888"
+        value={name}
+        onChangeText={setName}
+      />
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -27,11 +35,11 @@ const LoginScreen = ({ navigation }) => {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Login</Text>
+      <TouchableOpacity style={styles.button} onPress={handleRegister}>
+        <Text style={styles.buttonText}>Daftar</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
-        <Text style={styles.registerText}>Tidak Punya Akun? Daftar</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+        <Text style={styles.loginText}>Sudah punya akun? Login</Text>
       </TouchableOpacity>
     </View>
   );
@@ -75,10 +83,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
-  registerText: {
+  loginText: {
     color: '#ff69b4',
     fontSize: 16,
   },
 });
 
-export default LoginScreen;
+export default RegisterScreen;
