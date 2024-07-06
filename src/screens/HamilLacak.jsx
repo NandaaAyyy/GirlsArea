@@ -8,10 +8,16 @@ const KehamilanScreen = () => {
   const calculateDueDate = () => {
     if (lastPeriod) {
       const lastDate = new Date(lastPeriod);
-      const dueDate = new Date(lastDate.setDate(lastDate.getDate() + 280));
-      setDueDate(dueDate.toDateString());
+      const dueDate = new Date(lastDate.setDate(lastDate.getDate() + 280)); // 280 hari untuk kehamilan
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const locale = 'id-ID';
+      const formatter = new Intl.DateTimeFormat(locale, options);
+      const formattedDate = formatter.format(dueDate);
+  
+      setDueDate(formattedDate);
     }
   };
+  
 
   return (
     <View style={styles.container}>
@@ -21,6 +27,7 @@ const KehamilanScreen = () => {
         placeholder="Tanggal Menstruasi Terakhir (YYYY-MM-DD)"
         value={lastPeriod}
         onChangeText={setLastPeriod}
+        keyboardType="numeric"
       />
       <Button title="Hitung Tanggal Lahir" onPress={calculateDueDate} />
       {dueDate ? <Text style={styles.result}>Tanggal Lahir: {dueDate}</Text> : null}
@@ -33,6 +40,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#f0f8ff',
   },
   title: {
@@ -49,6 +57,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 5,
     backgroundColor: 'pink',
+    width: '100%',
+    textAlign: 'center',
   },
   result: {
     marginTop: 20,

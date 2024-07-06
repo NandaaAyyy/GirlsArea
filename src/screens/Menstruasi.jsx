@@ -1,21 +1,35 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const MenstruasiScreen = () => {
+const menstruasiTopics = [
+  { id: '1', name: 'Gejala Menstruasi', icon: 'alert-circle-outline', screen: 'GejalaMenstruasi' },
+  { id: '2', name: 'Perawatan Saat Menstruasi', icon: 'heart-outline', screen: 'PerawatanMenstruasi' },
+  { id: '3', name: 'Siklus Menstruasi', icon: 'calendar-outline', screen: 'SiklusMenstruasi' },
+];
+
+const MenstruasiScreen = ({ navigation }) => {
+  const renderTopic = ({ item }) => (
+    <TouchableOpacity
+      style={styles.button}
+      onPress={() => navigation.navigate(item.screen)}>
+      <MaterialCommunityIcons name={item.icon} size={30} color="white" />
+      <Text style={styles.buttonText}>{item.name}</Text>
+    </TouchableOpacity>
+  );
+
   return (
     <View style={styles.container}>
-      <MaterialCommunityIcons name="bottle-tonic-plus" size={50} color="#ff69b4" />
-      <Text style={styles.text}>Tentang Menstruasi</Text>
-      <Text style={styles.description}>
-        Menstruasi adalah proses alami bulanan pada tubuh perempuan yang dimulai pada masa pubertas dan berlangsung hingga menopause.
-      </Text>
-      <Text style={styles.description}>
-        Siklus menstruasi melibatkan perubahan hormonal yang mengarah pada pelepasan telur dari ovarium, diikuti dengan pengeluaran darah dan jaringan dari rahim jika tidak ada pembuahan.
-      </Text>
-      <Text style={styles.description}>
-        Mengetahui siklus menstruasi dan merawatnya dengan baik penting untuk kesehatan reproduksi dan umum.
-      </Text>
+      <View style={styles.labelContainer}>
+        <MaterialCommunityIcons name="bottle-tonic-plus" size={30} color="#ff69b4" />
+        <Text style={styles.text}>Tentang Menstruasi</Text>
+      </View>
+      <FlatList
+        data={menstruasiTopics}
+        renderItem={renderTopic}
+        keyExtractor={(item) => item.id}
+        contentContainerStyle={styles.listContainer}
+      />
     </View>
   );
 };
@@ -23,24 +37,46 @@ const MenstruasiScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     padding: 20,
     backgroundColor: '#fff0f5',
   },
+  labelContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 20,
+    marginBottom: 20,
+    backgroundColor: '#ffe4e1',
+    padding: 25,
+    borderRadius: 5,
+    width: '95%',
+    justifyContent: 'center',
+  },
   text: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginVertical: 20,
+    fontSize: 20,
+    marginLeft: 10,
     textAlign: 'center',
     color: '#ff69b4',
+    fontWeight: 'bold',
   },
-  description: {
-    fontSize: 16,
-    marginVertical: 10,
-    textAlign: 'center',
-    color: 'black',
-    lineHeight: 24,
+  button: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#ff69b4',
+    padding: 20,
+    borderRadius: 10,
+    marginTop: 10,
+    width: '90%',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 18,
+    marginLeft: 10,
+  },
+  listContainer: {
+    alignItems: 'center',
   },
 });
 

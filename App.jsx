@@ -18,12 +18,17 @@ import MenstruasiScreen from './src/screens/Menstruasi';
 import PerasaanScreen from './src/screens/Perasaan';
 import KehamilanScreen from './src/screens/HamilLacak';
 import MenstruasiLacak from './src/screens/Lacak';
+import GejalaMenstruasi from './src/screens/GejalaMenstruasi';
+import PerawatanMenstruasiScreen from './src/screens/PerawatanMenstruasi';
+import SiklusMenstruasiScreen from './src/screens/SiklusMenstruasi';
 
 const Stack =createStackNavigator();
 const Tab = createBottomTabNavigator();
 
+
 const Tabs = () => {
   return (
+    
     <Tab.Navigator screenOptions={{ tabBarActiveTintColor: 'pink' }}>
       <Tab.Screen
         name="Girls Area"
@@ -132,6 +137,21 @@ function App() {
         name="Perasaan" 
         component={PerasaanScreen} 
         options={{ title: 'Perasaan' }} 
+        /> 
+        <Stack.Screen 
+        name="PerawatanMenstruasi" 
+        component={PerawatanMenstruasiScreen} 
+        options={{ title :'Perawatan Menstruasi' }} 
+        />
+         <Stack.Screen 
+        name="SiklusMenstruasi" 
+        component={SiklusMenstruasiScreen} 
+        options={{ title :'Siklus Menstruasi' }} 
+        />
+        <Stack.Screen 
+        name="GejalaMenstruasi" 
+        component={GejalaMenstruasi} 
+        options={{ title :'Gejala Menstruasi' }} 
         />
         <Stack.Screen 
         name="UserContext" 
