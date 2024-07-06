@@ -16,6 +16,8 @@ import KesehatanTubuh from './src/screens/KesehatanTubuh';
 import Olahraga from './src/screens/Olahraga';
 import MenstruasiScreen from './src/screens/Menstruasi';
 import PerasaanScreen from './src/screens/Perasaan';
+import KehamilanScreen from './src/screens/HamilLacak';
+import MenstruasiLacak from './src/screens/Lacak';
 
 const Stack =createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -43,6 +45,26 @@ const Tabs = () => {
           tabBarLabel: 'Tentang'
         }}
       />
+      <Tab.Screen
+        name="HamilLacak"
+        component={KehamilanScreen}
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <MaterialCommunityIcons name="calendar-range" size={size} color={color} />
+          ),
+          tabBarLabel: 'HamilLacak'
+        }}
+        />
+        <Tab.Screen
+        name="Lacak"
+        component={MenstruasiLacak}
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <MaterialCommunityIcons name="clipboard-text-clock" size={size} color={color} />
+          ),
+          tabBarLabel: 'Lacak'
+        }}
+        />
       <Tab.Screen
         name="Profil"
         component={ProfileScreen}

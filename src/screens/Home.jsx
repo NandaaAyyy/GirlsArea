@@ -39,7 +39,7 @@ const HomeScreen = ({ navigation }) => {
         <MaterialCommunityIcons name="magnify" size={28} color="#6495E4" />
         <TextInput
           style={styles.searchInput}
-          placeholder="Cari topik..."
+          placeholder="Cari"
           value={searchQuery}
           onChangeText={handleSearch}
         />
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 10,
     fontSize: 18,
-    color: '#6495E4',
+    color: 'white',
   },
   labelContainer: {
     flexDirection: 'row',
