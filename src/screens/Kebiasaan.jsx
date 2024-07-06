@@ -6,21 +6,21 @@ const KebiasaanScreen = () => {
   return (
     <View style={styles.container}>
       <MaterialCommunityIcons name="calendar-check-outline" size={50} color="#ff69b4" />
-      <Text style={styles.text}>Kebiasaan Sehat</Text>
+      <Text style={styles.text}>Kebiasaan Perempuan saat Menstruasi</Text>
       <Text style={styles.description}>
-        Mempertahankan kebiasaan sehat sangat penting untuk kesehatan secara keseluruhan. Beberapa kebiasaan sehat meliputi:
+    Perlu dipahami bahwa saat menstruasi kebiasaan seorang perempuan menjadi agak aneh. Beberapa kebiasaan saat menstruasi dan menjelang menstruasi meliputi:
       </Text>
       <Text style={styles.description}>
-        1. Olahraga secara teratur.
+        1. Marah-Marah atau Menangis tanpa alasan.
       </Text>
       <Text style={styles.description}>
-        2. Makan makanan bergizi.
+        2. Ingin makan makanan yang manis.
       </Text>
       <Text style={styles.description}>
-        3. Tidur yang cukup.
+        3. Sakit Peru dan Sakit Pinggang.
       </Text>
       <Text style={styles.description}>
-        4. Mengelola stres dengan baik.
+        4. Overthinking dan memikirkan suatu hal secara berlebihan. 
       </Text>
     </View>
   );

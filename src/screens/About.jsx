@@ -10,11 +10,11 @@ const TentangScreen = () => {
       <Text style={styles.description}>
         Aplikasi ini dirancang untuk membantu khalayak ramai untuk belajar tentang perempuan. 
         Di dalamnya terdapat berbagai informasi menarik dan edukatif yang dapat meningkatkan 
-        pengetahuan dan wawasan mereka. 
+        pengetahuan dan wawasan.npm install react-native-splash-screen --save
       </Text>
       <Text style={styles.description}>
-        Kami berharap aplikasi ini dapat memberikan kontribusi positif dalam perkembangan 
-        anak-anak di era digital ini.
+        Kami berharap aplikasi ini dapat memberikan kontribusi positif dalam memahami
+        seorang perempuan.
       </Text>
     </View>
   );
