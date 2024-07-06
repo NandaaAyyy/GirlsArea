@@ -1,24 +1,34 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const PerasaanScreen = () => {
+const perasaanTopics = [
+  { id: '1', name: 'Perasaan dan Mood', icon: 'emoticon-happy-outline', screen: 'PerasaanMood' },
+  { id: '2', name: 'Kebiasaan', icon: 'baby-face-outline', screen: 'Kebiasaan' },
+];
+
+const PerasaanScreen = ({ navigation }) => {
+  const renderTopic = ({ item }) => (
+    <TouchableOpacity
+      style={styles.button}
+      onPress={() => navigation.navigate(item.screen)}>
+      <MaterialCommunityIcons name={item.icon} size={30} color="white" />
+      <Text style={styles.buttonText}>{item.name}</Text>
+    </TouchableOpacity>
+  );
+
   return (
     <View style={styles.container}>
-      <MaterialCommunityIcons name="emoticon-outline" size={50} color="#ff69b4" />
-      <Text style={styles.text}>Perasaan dan Mood Perempuan</Text>
-      <Text style={styles.description}>
-        Perasaan atau mood adalah respons alami terhadap peristiwa atau situasi dalam kehidupan sehari-hari.
-      </Text>
-      <Text style={styles.description}>
-        Mood perempuan dapat bervariasi dari sukacita, sedih, marah, hingga rasa takut, dan memiliki pengaruh besar terhadap kesejahteraan mental dan fisik.
-      </Text>
-      <Text style={styles.description}>
-        Memahami dan mengelola perasaan dengan baik membantu dalam menjaga kesehatan mental dan hubungan sosial.
-      </Text>
-      <Text style={styles.deskripsi}>
-        But, To Be a Peka Boyfriend Guysss heheeeee
-      </Text>
+      <View style={styles.labelContainer}>
+        <MaterialCommunityIcons name="image" size={30} color="#ff69b4" />
+        <Text style={styles.text}>Tentang Perasaan</Text>
+      </View>
+      <FlatList
+        data={perasaanTopics}
+        renderItem={renderTopic}
+        keyExtractor={(item) => item.id}
+        contentContainerStyle={styles.listContainer}
+      />
     </View>
   );
 };
@@ -26,32 +36,47 @@ const PerasaanScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     padding: 20,
     backgroundColor: '#fff0f5',
   },
+  labelContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 20,
+    marginBottom: 20,
+    backgroundColor: '#ffe4e1',
+    padding: 25,
+    borderRadius: 5,
+    width: '95%',
+    justifyContent: 'center',
+  },
   text: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginVertical: 20,
+    fontSize: 20,
+    marginLeft: 10,
     textAlign: 'center',
     color: '#ff69b4',
-  },
-  description: {
-    fontSize: 16,
-    marginVertical: 10,
-    textAlign: 'center',
-    color: 'black',
-    lineHeight: 24,
-  },
-  deskripsi: {
-    fontSize: 20,
-    color: 'black',
-    textAlign: 'center',
-    marginTop: 10,
     fontWeight: 'bold',
-  }
+  },
+  button: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#ff69b4',
+    padding: 20,
+    borderRadius: 10,
+    marginTop: 10,
+    width: '90%',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 18,
+    marginLeft: 10,
+  },
+  listContainer: {
+    alignItems: 'center',
+  },
 });
 
 export default PerasaanScreen;

@@ -21,6 +21,8 @@ import MenstruasiLacak from './src/screens/Lacak';
 import GejalaMenstruasi from './src/screens/GejalaMenstruasi';
 import PerawatanMenstruasiScreen from './src/screens/PerawatanMenstruasi';
 import SiklusMenstruasiScreen from './src/screens/SiklusMenstruasi';
+import PerasaanMoodScreen from './src/screens/PerasaanMood';
+import KebiasaanScreen from './src/screens/Kebiasaan';
 
 const Stack =createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -137,6 +139,16 @@ function App() {
         name="Perasaan" 
         component={PerasaanScreen} 
         options={{ title: 'Perasaan' }} 
+        /> 
+        <Stack.Screen 
+        name="PerasaanMood" 
+        component={PerasaanMoodScreen} 
+        options={{ title: 'Mood Perempuan' }} 
+        /> 
+        <Stack.Screen 
+        name="Kebiasaan" 
+        component={KebiasaanScreen} 
+        options={{ title: 'Kebiasaan Perempuan' }} 
         /> 
         <Stack.Screen 
         name="PerawatanMenstruasi" 
