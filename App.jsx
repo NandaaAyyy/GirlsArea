@@ -24,6 +24,7 @@ import SiklusMenstruasiScreen from './src/screens/SiklusMenstruasi';
 import PerasaanMoodScreen from './src/screens/PerasaanMood';
 import KebiasaanScreen from './src/screens/Kebiasaan';
 
+
 const Stack =createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -39,7 +40,7 @@ const Tabs = () => {
           tabBarIcon: ({ size, color }) => (
             <MaterialCommunityIcons name="home-account" size={size} color={color} />
           ),
-          tabBarLabel: 'Girls Area'
+          tabBarLabel: 'Home'
         }}
       />
       <Tab.Screen
@@ -59,7 +60,7 @@ const Tabs = () => {
           tabBarIcon: ({ size, color }) => (
             <MaterialCommunityIcons name="calendar-range" size={size} color={color} />
           ),
-          tabBarLabel: 'HamilLacak'
+          tabBarLabel: 'Lacak Hamil'
         }}
         />
         <Tab.Screen
@@ -69,7 +70,7 @@ const Tabs = () => {
           tabBarIcon: ({ size, color }) => (
             <MaterialCommunityIcons name="clipboard-text-clock" size={size} color={color} />
           ),
-          tabBarLabel: 'Lacak'
+          tabBarLabel: 'Lacak Mens'
         }}
         />
       <Tab.Screen
